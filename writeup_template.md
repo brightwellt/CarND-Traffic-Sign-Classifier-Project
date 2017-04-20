@@ -39,6 +39,8 @@ The goals / steps of this project are the following:
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 You're reading it! This writeup_template.md file should have been supplied as part of a zip file, also containing my Traffic_Sign_Classifier.ipynb project and the output of the project in html format.
+The github link for this project work can also be found at
+https://github.com/brightwellt/CarND-Traffic-Sign-Classifier-Project
 
 ###Data Set Summary & Exploration
 
@@ -129,9 +131,9 @@ To train the model, I used an Adam Optimizer.
 ####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 ## My final model results were: ##
-- training set accuracy of 0.981
-- validation set accuracy of 0.940
-- test set accuracy of 0.930
+- training set accuracy of 0.985
+- validation set accuracy of 0.951
+- test set accuracy of 0.936
 
 *If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -146,11 +148,12 @@ My approach was iterative:
 - I added code to convert my images to grayscale and scale them to mean 0, unit variance
 - At this point I was able to run the model and evaluate speed.
 - I moved the project onto Amazon Web Services
-- I tinkered with the model hyper parameters somewhat, and altering the LeNet structure.
-- This was not terribly effective.
+- The initial model's accuracy was too low for the assignment requirements.
+- I tinkered with the model hyper parameters learning what they did, and altering the LeNet structure to add and remove both convolution and pooling layers.
+- This had some effect, but was not terribly effective.
 - I read the notes more carefully; particularly the paper on "Traffic Sign Recognition with Multi-Scale Convolutional Networks" and elected to augment the dataset.
 - This got me to 93%+.
-- I continued to tinker with augmenting data and trying out different hyper parameters to identify sweet spots in the model.
+- I continued to tinker with augmenting data and trying out different hyper parameters to identify sweet spots in the model. I increased the learning rate slightly.
 - In particular, I didn't want to stray too far from the default LeNet since this is a well known implementation, suitable for tackling this problem.
 - I also went back and refined the augmentation functions.
 
@@ -192,67 +195,67 @@ Here are the results of the prediction:**
 | Road work     		| Road work										|
 | Right Of Way     		| Right Of Way									|
 | Yield					| Yield											|
-| Do Not Enter     		| Turn right ahead								|
+| No Entry     		| No Entry								|
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of 93.2%. 
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 93.6%. 
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 22nd code cell of the Ipython notebook.
 
-For the first image, the model is sure that this is a Children Crossing sign (probability of 1.0), and the image does contain this sign. The top five soft max probabilities were
+For the first image, the model is reasonably sure that this is a Children Crossing sign (probability of 0.694), and the image does contain this sign. The other non-zero probabilities are also triangular signs with black shapes in the middle. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 1.0         			| Children crossing   							| 
-| .00     				| Bicycles crossing								|
-| .00					| Priority road									|
-| .00	      			| Road work										|
-| .00				    | Beware of ice/snow							|
+| .694         			| Children crossing   							| 
+| .302     				| Beware of ice/snow								|
+| .004					| Bicycles crossing									|
+| .000	      			| Right of Way										|
+| .000				    | Road narrows on the right							|
 
 
-For the second image, the model is sure that this is a Road work sign (probability of 1.0), and the image does contain this sign. The top five soft max probabilities were
+For the second image, the model is virtually certain that this is a Road work sign (probability of 0.999), and the image does contain this sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 1.0         			| Road work										| 
-| .00     				| Pedestrians									|
-| .00					| Road narrows on the right						|
-| .00	      			| Double curve									|
-| .00				    | Bicycles crossing								|
+| .999         			| Road work										| 
+| .001     				| Double curve									|
+| .000					| Bicycles crossing						|
+| .000	      			| Beware of ice/snow									|
+| .000				    | Road narrows on the right								|
 
 
 For the third image, the model is sure that this is a Right of Way sign (probability of 1.0), and the image does contain this sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 1.0         			| Right of Way		   							| 
-| .00     				| Pedestrians									|
-| .00					| Children crossing								|
-| .00	      			| Priority road									|
-| .00				    | Double curve									|
+| 1.00         			| Right of Way		   							| 
+| .000     				| Priority road									|
+| .000					| Roundabout mandatory								|
+| .000	      			| Children crossing									|
+| .000				    | Pedestrians									|
 
 
 For the fourth image, the model is sure that this is a Yield sign (probability of 1.0), and the image does contain this sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 1.0         			| Yield											| 
-| .00     				| 30km/h Speed Limit							|
-| .00					| No vehicles									|
-| .00	      			| 50km/h Speed Limit							|
-| .00				    | Right of Way									|
+| 1.00         			| Yield											| 
+| .000     				| No vehicles							|
+| .000					| 30km/h Speed Limit									|
+| .000	      			| Right of Way							|
+| .000				    | Priority road									|
 
 
-For the fifth image, the model is moderately sure that this is a Turn right ahead sign (probability of 0.513). However it is the second probability, No entry, that is correct. The sticker on the sign appears to be causing confusion. Note that I had other sign images available to me, but wanted to throw in a challenging image. The top five soft max probabilities were
+For the fifth image, the model is sure that this is a No entry sign (probability of 1.0). The sticker on the sign did not throw off the network. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 0.513         		| Turn right ahead								| 
-| 0.267   				| No entry										|
-| 0.145					| Turn left ahead								|
-| 0.047      			| Ahead only									|
-| 0.025				    | Stop											|
+| 1.00         		| No entry								| 
+| .000  				| Yield										|
+| .000					| No passing for vehicles over 3.5 metric tons								|
+| .000      			| No passing									|
+| .000				    | Speed limit (20km/h)											|
 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
