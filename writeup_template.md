@@ -129,9 +129,9 @@ To train the model, I used an Adam Optimizer.
 ####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 ## My final model results were: ##
-- training set accuracy of 0.986
-- validation set accuracy of 0.952
-- test set accuracy of 0.932
+- training set accuracy of 0.981
+- validation set accuracy of 0.940
+- test set accuracy of 0.930
 
 *If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -179,7 +179,7 @@ Here are five German traffic signs that I found on the web, using StreetView aro
 - The second image, Roadworks, is skewed slightly.
 - The third image, Right Of Way, has white features in the background, disrupting the sign's outline.
 - The fourth image, Yield, is upside down and has little in the way of interesting features. 
-- The fifth image, Do Not Enter, has a white sticker on it and is slightly faded. The sticker is going to disrupt the white shape.
+- The fifth image, Do Not Enter, has a white sticker on it and is slightly faded. The sticker is likely to disrupt the white shape.
 
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
