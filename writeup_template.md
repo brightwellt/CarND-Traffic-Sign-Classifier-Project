@@ -23,12 +23,12 @@ The goals / steps of this project are the following:
 [image2]: ./writeup/grayscaleSign.png "Grayscaling"
 [image2b]: ./writeup/grayscaleSign2.png "Grayscaling and Normalization"
 [image3]: ./writeup/augmentedSign.png "Augmented Sign"
-[image4]: ./writeup/5_ChildrenCrossing.png "Traffic Sign 1"
-[image5]: ./writeup/1_roadworks.png "Traffic Sign 2"
-[image6]: ./writeup/7_rightofway.png "Traffic Sign 3"
-[image7]: ./writeup/4_yield.png "Traffic Sign 4"
-[image8]: ./writeup/3_DoNotEnter.png "Traffic Sign 5"
-[image9]: ./writeup/featuremap1.png "Feature Map 1"
+[image4]: ./writeup/5_ChildrenCrossing.PNG "Traffic Sign 1"
+[image5]: ./writeup/1_roadworks.PNG "Traffic Sign 2"
+[image6]: ./writeup/7_rightofway.PNG "Traffic Sign 3"
+[image7]: ./writeup/4_yield.PNG "Traffic Sign 4"
+[image8]: ./writeup/3_DoNotEnter.PNG "Traffic Sign 5"
+[image9]: ./writeup/featuremap1.PNG "Feature Map 1"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -259,7 +259,7 @@ For the fifth image, the model is moderately sure that this is a Turn right ahea
 ####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
 Here is the first Feature Map on one of the images, showing the Children Crossing.
-![alt text][image9]
+![Feature Map 1][image9] 
 The edges of the sign, and pixels making up the children are being identified.
 At this early stage, some of the background noise - the horizontal asphalt - is also being picked up.
 
